@@ -8,12 +8,15 @@ const socket = io();
 
 // Display the message that a user sent
 socket.on('chat message', msg => {
-    displayMsg(msg, messageType.others);
+    // TODO: get localTime
+    let time = new Date();
+    time = time.toLocaleTimeString('en-US');
+    displayMsg(msg, messageType.others, time);
 });
 
 // Display a connect message when a user has enter the chat room
 socket.on('user connect', name => {
-    displayMsg(`${name} has entered the chat`, messageType.notify);
+    displayMsg(`${name} has entered the chat`, messageType.notify, '');
 });
 
 // Displays a message to other users that someone is currently typing
@@ -30,7 +33,7 @@ socket.on('typing display', data => {
 
 // Broadcast a disconnect message of a user to all other users
 socket.on('user disconnect', name => {
-    displayMsg(`${name} has disconnected`, messageType.notify);
+    displayMsg(`${name} has disconnected`, messageType.notify, '');
 });
 
 window.addEventListener('DOMContentLoaded', init);
@@ -41,7 +44,7 @@ window.addEventListener('DOMContentLoaded', init);
  */
 function init() {
     currUser = prompt('Enter a name:') || 'Anonymous';
-    displayMsg(`You have entered the chat`, messageType.notify);
+    displayMsg(`You have entered the chat`, messageType.notify, '');
     socket.emit('user enter', currUser);
 
     document.getElementById('sendBtn').addEventListener('click', send);
@@ -55,7 +58,10 @@ function init() {
 function send() {
     let messageInput = document.getElementById('messageInput');
     if (messageInput.value !== '') {
-        displayMsg(`You: ${messageInput.value}`, messageType.self);
+        // TODO: get localTime attach to message
+        let time = new Date();
+        time = time.toLocaleTimeString('en-US');
+        displayMsg(`You: ${messageInput.value}`, messageType.self, time);
     }
     socket.emit('send message', {name: currUser, message: messageInput.value});
     messageInput.value = '';
@@ -67,10 +73,15 @@ function send() {
  * in the chat
  * @param {string} msg A message to be displayed
  */
-function displayMsg(msg, msgType) {
+function displayMsg(msg, msgType, time) {
     let newMsgContainer = document.createElement('li');
     let newMsg = document.createElement('p');
     newMsg.textContent = msg;
+    newMsgContainer.appendChild(newMsg);
+
+    let newMsgTime = document.createElement('p');
+    newMsgTime.textContent = time;
+    newMsgContainer.appendChild(newMsgTime);
 
     switch(msgType) {
         case messageType.notify:
@@ -78,13 +89,15 @@ function displayMsg(msg, msgType) {
             break;
         case messageType.self:
             newMsg.setAttribute('class', 'right');
+            newMsgTime.setAttribute('class', 'msgTimeRight');
             break;
         default:
             newMsg.setAttribute('class', 'left');
+            newMsgTime.setAttribute('class', 'msgTimeLeft');
             break;
     }
 
-    newMsgContainer.appendChild(newMsg);
+
     document.getElementById('messages').appendChild(newMsgContainer);
 }
 

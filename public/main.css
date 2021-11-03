@@ -31,6 +31,7 @@ p {
 li {
     margin: 0.3rem 0 0.3rem 0;
     display: flex;
+    flex-direction: column;
 }
 
 #chatContainer {
@@ -129,4 +130,12 @@ li {
 
 .typingActive {
     color: var(--white) !important;
+}
+
+.msgTimeRight {
+    margin-left: auto;
+}
+
+.msgTimeLeft {
+    margin-right: auto;
 }

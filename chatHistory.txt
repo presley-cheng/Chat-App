@@ -1,0 +1,6 @@
+{"message":" has disconnected","time":"2:48:53 PM","type":"notification"}
+{"name":"Anonymous","message":" has entered the chat","time":"2:48:55 PM","type":"notification"}
+{"name":"Anonymous","message":"hello","time":"2:48:57 PM","type":"message"}
+{"message":" has disconnected","time":"2:49:03 PM","type":"notification"}
+{"name":"Anonymous","message":" has entered the chat","time":"2:49:05 PM","type":"notification"}
+{"name":"Anonymous","message":"hi","time":"2:49:06 PM","type":"message"}
