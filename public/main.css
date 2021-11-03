@@ -25,6 +25,7 @@ body {
 p {
     color: var(--white);
     word-break: break-all;
+    max-width: 35ch;
 }
 
 li {
@@ -44,7 +45,7 @@ ul {
     border-radius: 0.3rem;
     margin: 2rem auto;
     max-width: 30rem;
-    height: 40rem;
+    height: 41rem;
     position: relative;
 }
 
@@ -115,4 +116,14 @@ ul {
     background-color: var(--bright-gray2);
     padding: 0.5rem 0.5rem;
     border-radius: 0.5rem;
+}
+
+#typingSignal {
+    padding-top: 0.3rem;
+    margin-left: 1rem;
+    color: var(--dark-gray3);
+}
+
+.typingActive {
+    color: var(--white) !important;
 }

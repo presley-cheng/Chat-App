@@ -21,9 +21,10 @@ socket.on('typing display', data => {
     let typingMsg = document.getElementById('typingSignal');
 
     if (data.typing === false) {
-        typingMsg.textContent = '';
-    } else if (typingMsg.textContent === '') {
+        typingMsg.removeAttribute('class');
+    } else if (typingMsg.className !== 'typingActive') {
         typingMsg.textContent = `${data.name} is typing...`;
+        typingMsg.setAttribute('class', 'typingActive');
     }
 });
 
