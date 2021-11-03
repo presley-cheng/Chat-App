@@ -33,10 +33,13 @@ li {
     display: flex;
 }
 
-ul {
-    overflow-y: auto;
-    height: 36rem;
+#chatContainer {
     padding: 0.3rem 0.3rem;
+    flex: 1;
+    height: 36rem;
+    overflow: auto;
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 #appContainer {
