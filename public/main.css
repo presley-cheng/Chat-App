@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+:root {
+    --purple: #7289da;
+    --white: #FFFF;
+    --light-gray: #99AAB5;
+    --dark-gray1: #36393e;
+    --dark-gray2: #282b30;
+    --dark-gray3: #1e2124;
+    --bright-gray2: #3b4047;
+}
+
+/* General Element Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    background-color: var(--purple);
+}
+
+p {
+    color: var(--white);
+    word-break: break-all;
+}
+
+li {
+    margin: 0.3rem 0 0.3rem 0;
+    display: flex;
+}
+
+ul {
+    overflow-y: auto;
+    height: 36rem;
+    padding: 0.3rem 0.3rem;
+}
+
+#appContainer {
+    border: 1px solid black;
+    background-color: var(--dark-gray3);
+    border-radius: 0.3rem;
+    margin: 2rem auto;
+    max-width: 30rem;
+    height: 40rem;
+    position: relative;
+}
+
+/* Input Textbar, Send Button Styling */
+#messageForm {
+    position: absolute;
+    display: flex;
+    border: 1px solid #748088;
+    border-radius: 1rem;
+    margin: 0 auto 1rem auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 95%;
+}
+
+#messageInput {
+    padding: 0.3rem 0.5rem;
+    width: 100%;
+    border: none;
+    background-color: var(--dark-gray2);
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    outline: none;
+    color: white;
+}
+
+#messageInput:focus {
+    background-color: var(--bright-gray2);
+}
+
+#sendBtn {
+    float: right;
+    border-style: none;
+    border: 1px solid white;
+    border-radius: 0.1rem 1rem 1rem 0.1rem;
+    padding: 0.2rem 0.5rem;
+    background-color: white;
+    font-size: larger;
+    transition-duration: 0.15s;
+}
+
+#sendBtn:hover {
+    background-color: transparent;
+    color: white;
+}
+
+#sendBtn:active {
+    background-color:white;
+    color: black;
+}
+
+/* Chat Message Styling */
+.center {
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.712);
+}
+
+.right {
+    margin-left: auto;
+    background-color: var(--purple);
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.left {
+    margin-right: auto;
+    background-color: var(--bright-gray2);
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.5rem;
+}
