@@ -43,7 +43,7 @@ io.on('connection', (socket) => {
     users[socket.id] = name;
     writeHistory(name, ' has entered the chat', 'notification')
     socket.broadcast.emit('user connect', name);
-  })
+  });
 
   socket.on('typing', data => {
       socket.broadcast.emit('typing display', data);
