@@ -1,4 +1,5 @@
 let currUser; // store the user's display name
+let DarkLight = true; // true -> dark mode, false -> light mode
 const messageType = {
     notify: 'notify',
     self : 'self',
@@ -49,6 +50,7 @@ function init() {
 
     document.getElementById('sendBtn').addEventListener('click', send);
     document.getElementById('messageInput').addEventListener('keydown', isTyping);
+    document.getElementById('DLToggle').addEventListener('click', DLMode);
 }
 
 /**
@@ -118,4 +120,15 @@ function isTyping(e) {
     } else {
         socket.emit('typing', {typing: false, name: currUser});
     }
+}
+
+/**
+ * Changes color scheme of the app on toggle
+ */
+function DLMode() {
+    DarkLight = !DarkLight;
+    document.getElementById('DLToggle').innerText= DarkLight? 'dark' : 'light';
+    // document.getElementById('appContainer').classList.toggle('lightMode');
+    // console.log(document.getElementById('appContainer').classList.toggle('lightMode'));
+    document.getElementById('appContainer').classList.add('lightMode');
 }
