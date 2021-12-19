@@ -127,8 +127,7 @@ function isTyping(e) {
  */
 function DLMode() {
     DarkLight = !DarkLight;
-    document.getElementById('DLToggle').innerText= DarkLight? 'dark' : 'light';
-    // document.getElementById('appContainer').classList.toggle('lightMode');
-    // console.log(document.getElementById('appContainer').classList.toggle('lightMode'));
-    document.getElementById('appContainer').classList.add('lightMode');
+    document.getElementById('DLToggle').innerText = DarkLight? 'Dark Mode' : 'Light Mode';
+    document.getElementById('appContainer').classList.toggle('lightMode');
+    document.getElementById('DLToggle').classList.toggle('lightMode');
 }

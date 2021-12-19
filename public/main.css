@@ -129,7 +129,7 @@ li {
 }
 
 .typingActive {
-    color: var(--white) !important;
+    filter: invert(1);
 }
 
 .msgTimeRight {
@@ -144,8 +144,71 @@ li {
     position: fixed;
     top: 10px;
     right: 10px;
+    padding: 5px 15px;
+    font-size: larger;
+    border-radius: 15px;
+    border: 1px solid var(--dark-gray2);
+    color: white;
+    background-color: var(--dark-gray1);
 }
 
+#DLToggle:hover {
+    filter: brightness(150%);
+}
+
+#DLToggle:active{
+    filter: brightness(80%);
+}
+
+
+/* Light Mode Styling */
 .lightMode {
     background-color: var(--white) !important;
+}
+
+.lightMode .center,
+.lightMode .msgTimeLeft,
+.lightMode .msgTimeRight {
+    color: var(--dark-gray3);
+}
+
+.lightMode #typingSignal {
+    color:var(--white) !important;
+}
+
+.lightMode #messageInput {
+    background-color: rgb(207, 207, 207);
+    color: var(--dark-gray3);
+}
+
+.lightMode #messageInput:focus {
+    filter: brightness(110%);
+}
+
+.lightMode #sendBtn {
+    background-color: var(--purple);
+    color: var(--white);
+    border: 1px solid var(--purple);
+}
+
+.lightMode #sendBtn:hover {
+    background-color: var(--white);
+    color: var(--purple);
+}
+
+.lightMode #sendBtn:active{
+    background-color: var(--purple);
+    color: var(--white);
+}
+
+.lightMode#DLToggle {
+    color: black;
+}
+
+.lightMode#DLToggle:hover {
+    filter: brightness(80%);
+}
+
+.lightMode#DLToggle:active{
+    filter: brightness(100%);
 }
